@@ -7,7 +7,7 @@ const Header = (props) => {
 
   useEffect(() => {
     setEditValue(props.editedTask.title);
-  }, [props.editedTask]);
+  }, [props.editedTask, props.isEditing]);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const Header = (props) => {
       title: editValue,
     };
     props.handleEditTask(editedTaskObj);
-    props.setIsEditing((prev) => !prev);
+    props.setIsEditing(false);
   };
 
   return (

@@ -26,6 +26,7 @@ const TaskApp = () => {
     if (window.confirm('Are you sure you want to delete this task?')) {
       dispatch(removeTask(task));
     }
+    setIsEditing(false);
   };
 
   const handleCompleteTask = (task) => {
@@ -60,7 +61,7 @@ const TaskApp = () => {
               handleCompleteTask={handleCompleteTask}
               task={task}
               key={task.id}
-              isLast={index === tasks.length - 1}
+              isLast={index === tasks.length - 1 && tasks.length > 3}
             />
           ))
         ) : (
